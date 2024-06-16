@@ -1,0 +1,17 @@
+@mixin font($font-name, $font-style, $font-weight, $font-url) {
+  @font-face {
+    font-display: swap;
+    font-family: $font-name;
+    font-style: $font-style;
+    font-weight: $font-weight;
+    src: url($font-url) format('truetype');
+  }
+}
+
+@include font('Manrope-ExraBold', normal, 800, '../../assets/fonts/Manrope/Manrope-ExtraBold.ttf');
+@include font('Manrope-Bold', normal, 700, '../../assets/fonts/Manrope/Manrope-Bold.ttf');
+@include font('Manrope-SemiBold', normal, 600, '../../assets/fonts/Manrope/Manrope-SemiBold.ttf');
+@include font('Manrope-Medium', normal, 500, '../../assets/fonts/Manrope/Manrope-Medium.ttf');
+@include font('Manrope-Regular', normal, 400, '../../assets/fonts/Manrope/Manrope-Regular.ttf');
+@include font('Manrope-Light', normal, 300, '../../assets/fonts/Manrope/Manrope-Light.ttf');
+@include font('Manrope-ExtraLight', normal, 200, '../../assets/fonts/Manrope/Manrope-ExtraLight.ttf');
