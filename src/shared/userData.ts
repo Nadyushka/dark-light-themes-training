@@ -1,5 +1,6 @@
 import {PersonalDescriptionModel, StatusEnum, UserModel} from "@/pages";
 import {ref} from "vue";
+import {PersonalDataWithImagesBlockModel} from "@/pages/main-layout/models/PersonalDataWithImagesBlockModel";
 
 /**
  * Информация о пользователе
@@ -18,7 +19,7 @@ export const userData = ref<UserModel>(new UserModel({
 /** Биография */
 export const biography: string = 'She currenlty lives in Sydney. She finished her master in businesss and has just been promoted to Sales Manager. She is currently single and like to go out with friends on long holidays.'
 /** Основные потребности */
-const  coreNeedsList: string[] = [
+export const  coreNeedsList: string[] = [
     'Need to find people with similar skills that can help her tackle company goals.',
     'View all her hirings in an overview ',
     'The price of the service is very important'
@@ -36,7 +37,7 @@ export const quote = 'I am used to work with online service and I usually do my 
 /** Персональные качества */
 export const personality = ['Introvert', 'Thinker', 'Spender', 'Tech-savy']
 
-/** Данные для блока справа */
+/** Данные для блока информации без картинок */
 export const personDescriptionBlocks = [
     new PersonalDescriptionModel({Title: 'Bio', Text: biography }),
     new PersonalDescriptionModel({Title: 'Core needs', List: coreNeedsList }),
@@ -44,10 +45,17 @@ export const personDescriptionBlocks = [
 ]
 
 /** Картинки брендов */
-export const brandImages = [ 'Nasa', 'Huawei', 'Facebook', 'Youtube', 'Instagram', 'Belle']
+export const brandImages = [ 'Nasa', 'Huawei', 'Facebook', 'Youtube', 'Instagram', 'Belle', 'hp']
 
 /** Способы оплаты */
 export const paymentImages = ['Cash', 'Online']
 
 /** Способы оплаты */
 export const platformImages = ['Website', 'Mobile']
+
+/** Данные для блока информации с картинками */
+export const personalDataWithImagesBlocks = [
+    new PersonalDataWithImagesBlockModel({ Title: 'Brands', Images: brandImages}),
+    new PersonalDataWithImagesBlockModel({ Title: 'Payment methods', Images: paymentImages}),
+    new PersonalDataWithImagesBlockModel({ Title: 'Experience with', Images: platformImages}),
+]

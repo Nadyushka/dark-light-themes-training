@@ -47,8 +47,7 @@
 
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
+  [data-theme='true'] {
     --background-color: #252525;
     --background-color-block: #1E1A1A;
 
@@ -58,7 +57,6 @@
     --font-color-leight: #A3A3A3;
     --font-color-block: #9F9F9F;
   }
-}
 
 body {
   transition: 0.5s all;

@@ -1,16 +1,5 @@
 <script setup lang="ts">
 import {PropType} from "vue";
-import Belle from "@/assets/svg/belle.svg"
-import Cash from "@/assets/svg/cash.svg"
-import Facebook from "@/assets/svg/huawei.svg"
-import Huawei from "@/assets/svg/nasa.svg"
-import Instagram from "@/assets/svg/instagram.svg"
-import Mobile from "@/assets/svg/mobile.svg"
-import Nasa from "@/assets/svg/nasa.svg"
-import Online from "@/assets/svg/online.svg"
-import Website from "@/assets/svg/website.svg"
-import Youtube from "@/assets/svg/facebook.svg"
-
 
 defineProps({
   title: {
@@ -21,28 +10,30 @@ defineProps({
   }
 })
 
-const  getImageComponent = (image: string) => {
-  switch (image) {
+const  getImageComponent = (imageName: string) => {
+  switch (imageName) {
     case 'Belle':
-      return Belle;
+      return './belle.png';
     case 'Cash':
-      return Cash;
+      return './cash.png';
     case 'Facebook':
-      return Facebook;
+      return './facebook.png';
     case 'Huawei':
-      return Huawei;
+      return './huawei.png';
     case 'Instagram':
-      return Instagram;
+      return './instagram.png';
     case 'Mobile':
-      return Mobile;
+      return './mobile.png';
     case 'Nasa':
-      return Nasa;
+      return './nasa.png';
     case 'Online':
-      return Online;
+      return './digital.png';
     case 'Website':
-      return Website;
+      return './website.png';
     case 'Youtube':
-      return Youtube;
+      return './youtube.png';
+    case 'hp':
+      return './hp.png';
     default:
       return null;
   }
@@ -52,21 +43,31 @@ const  getImageComponent = (image: string) => {
 <template>
   <div class="block">
     <div class="block_title block-title"> {{ title }} </div>
-  <div>
-        <component :is="Youtube" v-if="images.includes('Youtube')" />
-  </div>
-    <div>
-        <component :is="Website" v-if="images.includes('Website')" />
+    <div class="block_images">
+      <img class="block_image" v-for="image in images" :src="getImageComponent(image)"
+           :style="{
+        height: title == 'Brands' ? '95px' : '125px'
+      }"/>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
 .block {
-  padding: calc(var(--basic-padding) * 2) calc(var(--basic-padding) * 4.5);
+  padding: calc(var(--basic-padding) * 2) calc(var(--basic-padding) *2) calc(var(--basic-padding) * 2) calc(var(--basic-padding) * 4.5);
   background-color: var(--background-color-block);
   border-radius: var(--border-radius-block);
   margin-bottom: var(--basic-margin);
-  flex: 1 1 calc(50% - var(--basic-margin));
+  flex: 1 1 50% ;
+}
+.block_image {
+  margin-right: var(--basic-margin);
+}
+
+.tablet {
+  .block {
+    grid-column: span 2 !important;
+    margin-right: 0 !important;
+  }
 }
 </style>
